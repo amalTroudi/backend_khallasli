@@ -31,5 +31,5 @@ export const controllers = [
     OperateurController , 
     OrganisationController , 
     PdvController , 
-    ReportsController
+    // ReportsController
 ];

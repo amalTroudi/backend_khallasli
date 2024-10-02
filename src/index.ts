@@ -12,10 +12,18 @@ async function init(): Promise<void> {
   for (const initFn of singletonInitializers) {
     await initFn();
   }
+  console.log('error')
+  try {
+    const app = await StartProjectInit.create(AppContainer)
+    console.log('error')
 
-  const app = await StartProjectInit.create(AppContainer)
-  app.use(helmet());
-  await app.listen(PORT, () => console.log(`Running on port: ${PORT}`))
+    app.use(helmet());
+    console.log('error')
+
+    await app.listen(PORT, () => console.log(`Running on port: ${PORT}`))
+  } catch (error) {
+    console.log(error)
+  }
 }
    
-void init().catch();
+void init().catch((e)=>console.log(e));

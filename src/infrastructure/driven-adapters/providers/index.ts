@@ -138,10 +138,12 @@ export const adapters = [ {
 },{
     provide : PDV_REPOSITORY ,
     useClass : PdvPgRepositoryAdapter,
-},{
-    provide : REPORTS_REPOSITORY , 
-    useClass : ReportsPgRepositoryAdapter ,
 }
+
+// ,{
+//     provide : REPORTS_REPOSITORY , 
+//     useClass : ReportsPgRepositoryAdapter ,
+// }
 
 ];
         
@@ -195,8 +197,9 @@ export const services = [
     },{
         provide : PDV_SERVICE , 
         useClass : PdvServiceImpl,
-    },{
-        provide : REPORTS_SERVICE, 
-        useClass : ReportsServiceImpl,
     }
+    // ,{
+    //     provide : REPORTS_SERVICE, 
+    //     useClass : ReportsServiceImpl,
+    // }
 ];
