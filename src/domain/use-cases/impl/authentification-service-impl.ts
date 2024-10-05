@@ -14,20 +14,6 @@ export class AuthenticationServiceImpl implements IAuthenticationService {
          @Adapter(UPDATE_ACCESS_TOKEN_REPOSITORY) private readonly updateAccessTokenRepository: IUpdateAccessTokenRepository
     ) {
     }
-
-    // async auth(data: IAuthenticationService.Params): Promise<IAuthenticationService.Result> {
-    //     const account = await this.checkEmailRepository.checkEmail(data.email);
-    //     const isValid = await this.hashCompare.compare(data.password, account.password);
-    //     if (isValid) {
-    //         const accessToken = await this.encrypt.encrypt(account.id, account.roles);
-    //         // await this.updateAccessTokenRepository.updateToken(account.id, accessToken);
-    //         return {
-    //             accessToken,
-    //             name: account.name
-    //         }
-    //     }
-
-        // return null;
         async auth(data: IAuthenticationService.Params): Promise<IAuthenticationService.Result> {
             // Vérifiez si l'utilisateur existe
             const account = await this.checkEmailRepository.checkEmail(data.email);
