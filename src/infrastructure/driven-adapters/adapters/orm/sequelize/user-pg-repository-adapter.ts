@@ -6,6 +6,8 @@ import { ILoadAccountTokenRepository } from "@/domain/entities/contracts/load-ac
 import { IUpdateAccessTokenRepository } from "@/domain/entities/contracts/update-access-token-repository";
 import { AddUserParams, UserEntity } from "@/domain/entities/user";
 import { UserModelPg } from "./models/user-pg";
+import bcrypt from 'bcrypt';
+
 
 export class UserPgRepositoryAdapter implements 
     IAddUserRepository,
@@ -62,6 +64,15 @@ export class UserPgRepositoryAdapter implements
             throw new Error(`User with id ${id} not found`);
         }
         await user.destroy();
+    }
+     //  mise à jour d'un utilisateur
+     async updateUserRepository(id: string | number, data: Partial<AddUserParams>): Promise<UserEntity> {
+        const user = await UserModelPg.findByPk(id);
+        if (!user) {
+            throw new Error(`User with id ${id} not found`);
+        }
+        await user.update(data);
+        return this.map(user); 
     }
     }
 

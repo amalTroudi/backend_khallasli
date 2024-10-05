@@ -1,9 +1,7 @@
-import { BILL_REPOSITORY, IBillRepository } from "@/domain/entities/contracts/bill-repository";
 import { IPdvRepository, PDV_REPOSITORY } from "@/domain/entities/contracts/pdv-repository";
-import { BillModelPg } from "@/infrastructure/driven-adapters/adapters/orm/sequelize/models/bill-pg";
+import { PdvEntity, PdvParams } from "@/domain/entities/pdv";
 import { PdvModelPg } from "@/infrastructure/driven-adapters/adapters/orm/sequelize/models/pdv-pg";
 import { Adapter, Service } from "@tsclean/core";
-import { IBillService } from "../bill-service";
 import { IPdvService } from "../pdv-service";
 
 
@@ -38,5 +36,14 @@ export class PdvServiceImpl implements IPdvService {
     }
     async getPdvByCodeComptable(code_comptable: number): Promise<PdvModelPg[]> {
         return await this.pdvRepository.getPdvByCodeComptable(code_comptable);
+    }
+    async addPdvService(data: PdvParams): Promise<PdvEntity> {
+        return await this.pdvRepository.addPdvRepository(data);
+    }
+    async deletePdvService(id: string | number): Promise<void> {
+        await this.pdvRepository.deletePdvRepository(id);
+    }
+    async updatePdvService(id: string | number, data: Partial<PdvParams>): Promise<PdvEntity> {
+        return await this.pdvRepository.updatePdvRepository(id, data);
     }
 }

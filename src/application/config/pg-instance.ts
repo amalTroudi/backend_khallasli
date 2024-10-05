@@ -48,7 +48,8 @@ export class PgConfiguration {
           OpeerateurModelPg , 
           OrganisationModelPg , 
           PdvModelPg , 
-          ReportsModelPg 
+          // ReportsModelPg  , 
+
         ]
       }
     );

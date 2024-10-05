@@ -5,13 +5,13 @@ export type UserEntity = {
   email: string;
   password: string;
   accessToken?: string;
-  roles: String[]
+  roles: String[]; 
   
 }
-// export type UserRoleModel = [
-//   {
-//       role: string
-//   }
-// ]
+export type UserRoleModel = [
+  {
+      role: string
+  }
+]
 
 export type AddUserParams = Omit<UserEntity, 'id'>

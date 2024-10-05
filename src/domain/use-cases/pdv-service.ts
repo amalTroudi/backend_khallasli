@@ -1,4 +1,5 @@
 import { PdvModelPg } from "@/infrastructure/driven-adapters/adapters/orm/sequelize/models/pdv-pg";
+import { PdvEntity, PdvParams } from "../entities/pdv";
 
 export const PDV_SERVICE = "PDV_SERVICE";
 
@@ -10,7 +11,11 @@ export interface IPdvService {
     getPdvByIdCategorie: (id_categorie: string) => Promise<PdvModelPg | null>;
     getPdvByVille :(ville: string)=> Promise<PdvModelPg[]> ; 
     getPdvByRegion :(region: string)=> Promise<PdvModelPg[]>
-    getPdvByCodeComptable :(code_comptable: number)=> Promise<PdvModelPg[]>
+    getPdvByCodeComptable :(code_comptable: number)=> Promise<PdvModelPg[]> ; 
+    updatePdvService: (id: string | number, data: Partial<PdvParams>) => Promise<PdvEntity>;
+    deletePdvService: (id: string | number) => Promise<void>;
+    addPdvService: (data: PdvParams) => Promise<PdvEntity>
+
 
 
 }

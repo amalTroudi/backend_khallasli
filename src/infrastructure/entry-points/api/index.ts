@@ -14,6 +14,7 @@ import { OperateurController } from "./operateur-controller";
 import { OrganisationController } from "./organisation-controller";
 import { PdvController } from "./pdv-controller";
 import { ReportsController } from "./reports-contoller";
+import { UpdateUserController } from "./update-user-controller";
 
 export const controllers = [
     AddUserController , 
@@ -30,6 +31,7 @@ export const controllers = [
     LeadsController , 
     OperateurController , 
     OrganisationController , 
-    PdvController , 
+    PdvController ,
+    UpdateUserController
     // ReportsController
 ];

@@ -20,6 +20,7 @@ import { ORGANISATION_REPOSITORY } from "@/domain/entities/contracts/organisatio
 import { PDV_REPOSITORY } from "@/domain/entities/contracts/pdv-repository";
 import { REPORTS_REPOSITORY } from "@/domain/entities/contracts/reports-repository";
 import { UPDATE_ACCESS_TOKEN_REPOSITORY } from "@/domain/entities/contracts/update-access-token-repository";
+import { UPDATE_USER_REPOSITORY } from "@/domain/entities/contracts/update-user-repository";
 import { ACTIVITE_SERVICE } from "@/domain/use-cases/activite-service";
 import { ADD_USER_SERVICE } from "@/domain/use-cases/add-user-service";
 import { ALIMENTATION_COMMERCIAL_PDV_SERVICE } from "@/domain/use-cases/alimentation-commercial-pdv-service";
@@ -46,11 +47,13 @@ import { OperateurServiceImpl } from "@/domain/use-cases/impl/operateur-service_
 import { OrganisationServiceImpl } from "@/domain/use-cases/impl/organisation-service-impl";
 import { PdvServiceImpl } from "@/domain/use-cases/impl/pdv-service-impl";
 import { ReportsServiceImpl } from "@/domain/use-cases/impl/reports-service-impl";
+import { UpdateUserServiceImpl } from "@/domain/use-cases/impl/update-user-service-impl";
 import { LEADS_SERVICE } from "@/domain/use-cases/leads-service";
 import { OPERATEUR_SERVICE } from "@/domain/use-cases/operateur-service";
 import { ORGANISATION_SERVICE } from "@/domain/use-cases/organisation-service";
 import { PDV_SERVICE } from "@/domain/use-cases/pdv-service";
 import { REPORTS_SERVICE } from "@/domain/use-cases/reports-service";
+import { UPDATE_USER_SERVICE } from "@/domain/use-cases/update-user-service";
 import { BcryptAdapter } from "../adapters/bcrypt-adapter";
 import { JwtAdapter } from "../adapters/jwt-adapter";
 import { ActivitePgRepositoryAdapter } from "../adapters/orm/sequelize/activite-pg-repository-adapter";
@@ -138,6 +141,9 @@ export const adapters = [ {
 },{
     provide : PDV_REPOSITORY ,
     useClass : PdvPgRepositoryAdapter,
+},{
+    provide : UPDATE_USER_REPOSITORY , 
+    useClass : UserPgRepositoryAdapter,
 }
 
 // ,{
@@ -197,6 +203,9 @@ export const services = [
     },{
         provide : PDV_SERVICE , 
         useClass : PdvServiceImpl,
+    },{
+        provide : UPDATE_USER_SERVICE, 
+        useClass : UpdateUserServiceImpl,
     }
     // ,{
     //     provide : REPORTS_SERVICE, 

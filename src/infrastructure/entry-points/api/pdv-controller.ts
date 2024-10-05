@@ -1,6 +1,8 @@
+import { PdvEntity, PdvParams } from "@/domain/entities/pdv";
+import { AddUserParams } from "@/domain/entities/user";
 import { IOrganisationService, ORGANISATION_SERVICE } from "@/domain/use-cases/organisation-service";
 import { IPdvService, PDV_SERVICE } from "@/domain/use-cases/pdv-service";
-import { Adapter, Get, Mapping, Param } from "@tsclean/core";
+import { Adapter, Body, Delete, Get, Mapping, Param, Post, Put } from "@tsclean/core";
 
 
 @Mapping('/pdv')
@@ -15,9 +17,7 @@ export class PdvController {
     // @Auth(["admin", "guest"])
     async pdvController(): Promise<any> {
         return await this.pdvService.pdvService();
-    }
-  
-     
+    }     
     @Get('id/:id')
     async getPdvById(@Param('id') id: number): Promise<any> {
         return await this.pdvService.getPdvById(id);
@@ -47,6 +47,25 @@ export class PdvController {
     @Get('/code_comptable/:code_comptable')
     async getPdvByCodeComptable(@Param('code_comptable') code_comptable: number): Promise<any> {
         return await this.pdvService.getPdvByCodeComptable(code_comptable);
+    }
+    @Post()
+    async addUserController(@Body() data: PdvParams): Promise<PdvEntity> {
+        return await this.pdvService.addPdvService(data);
+    }
+    @Delete('delete/:id')
+    async deleteUserController(@Param('id') id: string): Promise<void> {
+        if (!id) {
+            throw new Error("ID is required");
+        }
+        await this.pdvService.deletePdvService(id);
+    }
+    @Put('/modifier/:id')
+    async updatePDVController(
+        @Param('id') id: string,  // ID récupéré de l'URL
+        @Body() data: Partial<PdvParams>
+    ): Promise<PdvEntity> {
+        console.log('ID reçu dans le contrôleur:', id); // Log pour vérifier l'ID
+        return await this.pdvService.updatePdvService(id, data);
     }
    
 }
