@@ -42,4 +42,5 @@ export class AuthenticationServiceImpl implements IAuthenticationService {
             return null; // Cela déclenchera l'erreur 401
         }
         
+        
     }

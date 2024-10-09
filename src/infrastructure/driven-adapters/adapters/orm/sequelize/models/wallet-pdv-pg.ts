@@ -1,7 +1,9 @@
 import { Table, Column, Model, DataType } from 'sequelize-typescript';
 
-@Table({ tableName: 'user' })
-export class UserModelPg extends Model {
+@Table({ tableName: 'wallet_pdv' ,
+
+timestamps: false })
+export class WalletPdvModelPg extends Model {
     @Column({
         type: DataType.INTEGER,
         primaryKey: true,
@@ -10,20 +12,22 @@ export class UserModelPg extends Model {
     public id!: number;
 
     @Column({ type: DataType.STRING })
-    public name!: string;
+    public id_wallet!: string;
 
     @Column({ type: DataType.STRING })
-    public email!: string;
+    public balance!: string;
 
     @Column({ type: DataType.STRING })
-    public password!: string;
+    public status!: string;
    
     @Column({ type: DataType.STRING })
-    public accessToken?: string; 
+    public companyid?: string; 
 
-    @Column({ type: DataType.ARRAY(DataType.STRING) })
-    public roles!: string[]; 
-
-    // @Column({ type: DataType.ARRAY(DataType.STRING) })
-    // public roles!: string[];
+    @Column({ type: DataType.NUMBER })
+    public id_pdv?: number; 
+    
+    @Column({ type: DataType.DATE })
+    public dt?: Date; 
+    
+   
 }

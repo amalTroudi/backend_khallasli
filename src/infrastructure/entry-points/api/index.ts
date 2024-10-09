@@ -15,6 +15,8 @@ import { OrganisationController } from "./organisation-controller";
 import { PdvController } from "./pdv-controller";
 import { ReportsController } from "./reports-contoller";
 import { UpdateUserController } from "./update-user-controller";
+import { WalletController } from "./wallet-controller";
+import { WalletPdvController } from "./wallet-pdv-controller";
 
 export const controllers = [
     AddUserController , 
@@ -32,6 +34,9 @@ export const controllers = [
     OperateurController , 
     OrganisationController , 
     PdvController ,
-    UpdateUserController
+    UpdateUserController , 
+    WalletController , 
+    WalletPdvController
+    
     // ReportsController
 ];

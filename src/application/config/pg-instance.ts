@@ -15,6 +15,8 @@ import { OpeerateurModelPg } from "@/infrastructure/driven-adapters/adapters/orm
 import { OrganisationModelPg } from "@/infrastructure/driven-adapters/adapters/orm/sequelize/models/organisation-pg";
 import { PdvModelPg } from "@/infrastructure/driven-adapters/adapters/orm/sequelize/models/pdv-pg";
 import { ReportsModelPg } from "@/infrastructure/driven-adapters/adapters/orm/sequelize/models/reports-pg";
+import { WalletModelPg } from "@/infrastructure/driven-adapters/adapters/orm/sequelize/models/wallet-pg";
+import { WalletPdvModelPg } from "@/infrastructure/driven-adapters/adapters/orm/sequelize/models/wallet-pdv-pg";
 
 /**
  * Class that generates a connection instance for Pg using the Singleton pattern
@@ -48,6 +50,8 @@ export class PgConfiguration {
           OpeerateurModelPg , 
           OrganisationModelPg , 
           PdvModelPg , 
+          WalletModelPg,
+          WalletPdvModelPg,
           // ReportsModelPg  , 
 
         ]

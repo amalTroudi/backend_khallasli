@@ -21,6 +21,8 @@ import { PDV_REPOSITORY } from "@/domain/entities/contracts/pdv-repository";
 import { REPORTS_REPOSITORY } from "@/domain/entities/contracts/reports-repository";
 import { UPDATE_ACCESS_TOKEN_REPOSITORY } from "@/domain/entities/contracts/update-access-token-repository";
 import { UPDATE_USER_REPOSITORY } from "@/domain/entities/contracts/update-user-repository";
+import { WALLET_PDV_REPOSITORY } from "@/domain/entities/contracts/wallet-pdv-repository";
+import { WALLET_REPOSITORY } from "@/domain/entities/contracts/wallet-repository";
 import { ACTIVITE_SERVICE } from "@/domain/use-cases/activite-service";
 import { ADD_USER_SERVICE } from "@/domain/use-cases/add-user-service";
 import { ALIMENTATION_COMMERCIAL_PDV_SERVICE } from "@/domain/use-cases/alimentation-commercial-pdv-service";
@@ -48,12 +50,16 @@ import { OrganisationServiceImpl } from "@/domain/use-cases/impl/organisation-se
 import { PdvServiceImpl } from "@/domain/use-cases/impl/pdv-service-impl";
 import { ReportsServiceImpl } from "@/domain/use-cases/impl/reports-service-impl";
 import { UpdateUserServiceImpl } from "@/domain/use-cases/impl/update-user-service-impl";
+import { WalletPdvServiceImpl } from "@/domain/use-cases/impl/wallet-pdv-service-impl";
+import { WalletServiceImpl } from "@/domain/use-cases/impl/wallet-service-impl";
 import { LEADS_SERVICE } from "@/domain/use-cases/leads-service";
 import { OPERATEUR_SERVICE } from "@/domain/use-cases/operateur-service";
 import { ORGANISATION_SERVICE } from "@/domain/use-cases/organisation-service";
 import { PDV_SERVICE } from "@/domain/use-cases/pdv-service";
 import { REPORTS_SERVICE } from "@/domain/use-cases/reports-service";
 import { UPDATE_USER_SERVICE } from "@/domain/use-cases/update-user-service";
+import { WALLET_PDV_SERVICE } from "@/domain/use-cases/wallet-pdv-service";
+import { WALLET_SERVICE } from "@/domain/use-cases/wallet-service";
 import { BcryptAdapter } from "../adapters/bcrypt-adapter";
 import { JwtAdapter } from "../adapters/jwt-adapter";
 import { ActivitePgRepositoryAdapter } from "../adapters/orm/sequelize/activite-pg-repository-adapter";
@@ -68,6 +74,8 @@ import { OrganisationPgRepositoryAdapter } from "../adapters/orm/sequelize/organ
 import { PdvPgRepositoryAdapter } from "../adapters/orm/sequelize/pdv-pg-repository-adapter";
 import { ReportsPgRepositoryAdapter } from "../adapters/orm/sequelize/reports-pg-repository-adapter";
 import { UserPgRepositoryAdapter } from "../adapters/orm/sequelize/user-pg-repository-adapter";
+import { WalletPdvPgRepositoryAdapter } from "../adapters/orm/sequelize/wallet-pdv-pg-repository-adapter";
+import { WalletPgRepositoryAdapter } from "../adapters/orm/sequelize/wallet-pg-repository-adapter";
 
 export const adapters = [ {
     provide: HASH_REPOSITORY,
@@ -144,6 +152,12 @@ export const adapters = [ {
 },{
     provide : UPDATE_USER_REPOSITORY , 
     useClass : UserPgRepositoryAdapter,
+},{
+    provide : WALLET_REPOSITORY, 
+    useClass : WalletPgRepositoryAdapter ,
+},{
+    provide : WALLET_PDV_REPOSITORY,
+    useClass : WalletPdvPgRepositoryAdapter,
 }
 
 // ,{
@@ -206,6 +220,12 @@ export const services = [
     },{
         provide : UPDATE_USER_SERVICE, 
         useClass : UpdateUserServiceImpl,
+    } ,{
+        provide : WALLET_SERVICE , 
+        useClass : WalletServiceImpl,
+    } ,{
+        provide : WALLET_PDV_SERVICE ,
+        useClass : WalletPdvServiceImpl,
     }
     // ,{
     //     provide : REPORTS_SERVICE, 
