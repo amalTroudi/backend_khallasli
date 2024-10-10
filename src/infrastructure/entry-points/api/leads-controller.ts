@@ -1,4 +1,3 @@
-import { BILL_SERVICE, IBillService } from "@/domain/use-cases/bill-service";
 import { ILeadsService, LEADS_SERVICE } from "@/domain/use-cases/leads-service";
 import { Adapter, Get, Mapping, Param, Query } from "@tsclean/core";
 

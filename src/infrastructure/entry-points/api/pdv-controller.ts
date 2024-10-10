@@ -1,6 +1,4 @@
 import { PdvEntity, PdvParams } from "@/domain/entities/pdv";
-import { AddUserParams } from "@/domain/entities/user";
-import { IOrganisationService, ORGANISATION_SERVICE } from "@/domain/use-cases/organisation-service";
 import { IPdvService, PDV_SERVICE } from "@/domain/use-cases/pdv-service";
 import { Adapter, Body, Delete, Get, Mapping, Param, Post, Put } from "@tsclean/core";
 

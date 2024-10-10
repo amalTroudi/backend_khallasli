@@ -1,4 +1,3 @@
-import { DEMANDE_ALIMENTATION_PDV_SERVICE, IDemandeAlimentationPdvService } from "@/domain/use-cases/demande-alimentation-pdv-service";
 import { HISTORY_WALLET_PDV_SERVICE, IHistoryWalletPdvService } from "@/domain/use-cases/history-wallet-pdv-service";
 import { Adapter, Get, Mapping, Param, Query } from "@tsclean/core";
 

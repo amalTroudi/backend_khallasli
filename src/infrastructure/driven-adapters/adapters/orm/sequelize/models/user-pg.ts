@@ -17,13 +17,11 @@ export class UserModelPg extends Model {
 
     @Column({ type: DataType.STRING })
     public password!: string;
-   
+
     @Column({ type: DataType.STRING })
     public accessToken?: string; 
 
     @Column({ type: DataType.ARRAY(DataType.STRING) })
     public roles!: string[]; 
 
-    // @Column({ type: DataType.ARRAY(DataType.STRING) })
-    // public roles!: string[];
 }
