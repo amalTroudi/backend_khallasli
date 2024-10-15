@@ -12,6 +12,7 @@ export namespace IAuthenticationService {
 
     export type Result = {
         accessToken: string;
-        name: string
+        name: string ; 
+        role: string
     }
 }

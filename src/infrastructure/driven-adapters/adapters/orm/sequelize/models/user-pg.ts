@@ -24,4 +24,6 @@ export class UserModelPg extends Model {
     @Column({ type: DataType.ARRAY(DataType.STRING) })
     public roles!: string[]; 
 
+    @Column({ type: DataType.STRING })
+    public role!: string; 
 }

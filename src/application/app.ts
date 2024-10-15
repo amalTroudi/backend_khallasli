@@ -1,5 +1,5 @@
 import {Container} from "@tsclean/core";
-import {controllers} from "@/infrastructure/entry-points/api";
+import {controllers} from "@/infrastructure/entry-points/api/controllers";
 import {services, adapters} from "@/infrastructure/driven-adapters/providers";
 
 @Container({

@@ -83,8 +83,8 @@ export const adapters = [ {
 
 },
 {
-    provide: ADD_USER_REPOSITORY,
-    useClass: UserPgRepositoryAdapter,
+    provide: ADD_USER_SERVICE,
+    useClass: AddUserServiceImpl,
 },
 {
     provide: GET_USERS_REPOSITORY,

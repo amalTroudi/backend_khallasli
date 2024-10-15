@@ -40,7 +40,8 @@ export class AuthenticationServiceImpl implements IAuthenticationService {
             // If all is correct, return the result object
             return {
                 accessToken: "your_generated_access_token_here", // Generate token here
-                name: account.name
+                name: account.name ,
+                role: account.role
             };
         } catch (error) {
             console.error("Error during authentication:", error);

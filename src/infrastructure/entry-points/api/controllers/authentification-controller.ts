@@ -1,6 +1,6 @@
 import { AUTHENTICATION_SERVICE, IAuthenticationService } from "@/domain/use-cases/authentification-service";
 import { Body, Inject, Mapping, Post } from "@tsclean/core";
-import { ValidateFields } from "../helpers/validate-fields";
+import { ValidateFields } from "../../helpers/validate-fields";
 import jwt from 'jsonwebtoken'; // Library for JWT generation
 
 @Mapping('api/v1/authentication')
