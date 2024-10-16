@@ -1,0 +1,1 @@
+{"version":3,"file":"singleton.js","sourceRoot":"","sources":["../../src/application/singleton.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,kEAAmE;AAEnE;;KAEK;AACQ,QAAA,qBAAqB,GAA+B;IAC7D,GAAS,EAAE;QAEP,MAAM,QAAQ,GAAG,6BAAe,CAAC,WAAW,EAAE,CAAC;QAC/C,MAAM,QAAQ,CAAC,mBAAmB,EAAE,CAAC;IACzC,CAAC,CAAA;CACJ,CAAC"}
