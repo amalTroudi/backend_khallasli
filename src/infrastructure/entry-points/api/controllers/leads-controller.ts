@@ -1,13 +1,21 @@
 import { ILeadsService, LEADS_SERVICE } from "@/domain/use-cases/leads-service";
-import { Adapter, Get, Mapping, Param, Query } from "@tsclean/core";
+import { Adapter, Get, Mapping, Param } from "@tsclean/core";
+import {  Router } from 'express'
 
 
 @Mapping('/leads')
 export class LeadsController {
 
+    public route: string = '/leads';
+    public router: Router;
+
     constructor(
         @Adapter(LEADS_SERVICE) private readonly leadService: ILeadsService
     ) {
+    }
+    private initializeRoutes() {
+        // Route pour ajouter un utilisateur
+        this.router.get('/leads', this.leadsController.bind(this));
     }
 
     @Get("/all")

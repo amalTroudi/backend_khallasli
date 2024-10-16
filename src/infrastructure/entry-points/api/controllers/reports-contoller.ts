@@ -1,18 +1,25 @@
 import { IReportsService, REPORTS_SERVICE } from "@/domain/use-cases/reports-service";
 import { Adapter, Get, Mapping, Param } from "@tsclean/core";
-
+import {  Router } from 'express'
 
 @Mapping('/reports')
 export class ReportsController {
+
+    public route: string = '/reports';
+    public router: Router;
 
     constructor(
         @Adapter(REPORTS_SERVICE) private readonly reportsService: IReportsService
     ) {
     }
+    private initializeRoutes() {
+        // Route pour ajouter un utilisateur
+        this.router.get('/reports', this.reportsController.bind(this));
+    }
 
     @Get("/all")
     // @Auth(["admin", "guest"])
-    async pdvController(): Promise<any> {
+    async reportsController(): Promise<any> {
         return await this.reportsService.reportsService();
     }
   

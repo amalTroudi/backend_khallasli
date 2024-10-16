@@ -1,21 +1,26 @@
-import { ACTIVITE_SERVICE, IActiviteService } from "@/domain/use-cases/activite-service";
-import { ALIMENTATION_COMMERCIAL_PDV_SERVICE, IAlimentationCommercialPdvService } from "@/domain/use-cases/alimentation-commercial-pdv-service";
 import { IWalletPdvService, WALLET_PDV_SERVICE } from "@/domain/use-cases/wallet-pdv-service";
-import { IWalletService, WALLET_SERVICE } from "@/domain/use-cases/wallet-service";
 import { Adapter, Get, Mapping, Param, Query } from "@tsclean/core";
+import {  Router } from 'express'
 
 
 @Mapping('/walletPdv')
 export class WalletPdvController {
 
+    public route: string = '/walletPdv';
+    public router: Router;
+
     constructor(
         @Adapter(WALLET_PDV_SERVICE) private readonly walletPdvService: IWalletPdvService
     ) {
     }
+    private initializeRoutes() {
+        // Route pour ajouter un utilisateur
+        this.router.get('/walletPdv', this.walletPdvdvController.bind(this));
+    }
 
     @Get("/all")
     // @Auth(["admin", "guest"])
-    async pdvController(): Promise<any> {
+    async walletPdvdvController(): Promise<any> {
         return await this.walletPdvService.walletPdvService();
     }
     

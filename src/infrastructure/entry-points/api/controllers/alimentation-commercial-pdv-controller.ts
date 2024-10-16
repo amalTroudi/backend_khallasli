@@ -1,14 +1,20 @@
-import { ACTIVITE_SERVICE, IActiviteService } from "@/domain/use-cases/activite-service";
 import { ALIMENTATION_COMMERCIAL_PDV_SERVICE, IAlimentationCommercialPdvService } from "@/domain/use-cases/alimentation-commercial-pdv-service";
-import { Adapter, Get, Mapping, Param, Query } from "@tsclean/core";
+import { Adapter, Get, Mapping, Param } from "@tsclean/core";
+import {  Router } from 'express'
 
 
 @Mapping('/alimentaionCommercialPdv')
 export class AlimentationCommercialPdvController {
+    public route: string = '/alimentaionCommercialPdv';
+    public router: Router;
 
     constructor(
         @Adapter(ALIMENTATION_COMMERCIAL_PDV_SERVICE) private readonly alimentationCommercialPdvService: IAlimentationCommercialPdvService
     ) {
+    }
+    private initializeRoutes() {
+        // Route pour ajouter un utilisateur
+        this.router.post('/alimentaionCommercialPdv', this.alimentationCommercialPdvController.bind(this));
     }
 
     @Get("/all")

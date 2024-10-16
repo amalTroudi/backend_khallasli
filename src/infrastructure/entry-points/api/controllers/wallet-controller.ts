@@ -1,20 +1,26 @@
-import { ACTIVITE_SERVICE, IActiviteService } from "@/domain/use-cases/activite-service";
-import { ALIMENTATION_COMMERCIAL_PDV_SERVICE, IAlimentationCommercialPdvService } from "@/domain/use-cases/alimentation-commercial-pdv-service";
 import { IWalletService, WALLET_SERVICE } from "@/domain/use-cases/wallet-service";
-import { Adapter, Get, Mapping, Param, Query } from "@tsclean/core";
+import { Adapter, Get, Mapping, Param } from "@tsclean/core";
+import {  Router } from 'express'
 
 
 @Mapping('/wallet')
 export class WalletController {
+    public route: string = '/wallet';
+    public router: Router;
 
     constructor(
         @Adapter(WALLET_SERVICE) private readonly walletService: IWalletService
     ) {
     }
 
+    private initializeRoutes() {
+        // Route pour ajouter un utilisateur
+        this.router.get('/wallet', this.walletController.bind(this));
+    }
+
     @Get("/all")
     // @Auth(["admin", "guest"])
-    async pdvController(): Promise<any> {
+    async walletController(): Promise<any> {
         return await this.walletService.walletService();
     }
     

@@ -1,14 +1,23 @@
 import { PdvEntity, PdvParams } from "@/domain/entities/pdv";
 import { IPdvService, PDV_SERVICE } from "@/domain/use-cases/pdv-service";
 import { Adapter, Body, Delete, Get, Mapping, Param, Post, Put } from "@tsclean/core";
+import {  Router } from 'express'
 
 
 @Mapping('/pdv')
 export class PdvController {
 
+    public route: string = '/pdv';
+    public router: Router;
+
+
     constructor(
         @Adapter(PDV_SERVICE) private readonly pdvService: IPdvService
     ) {
+    }
+    private initializeRoutes() {
+        // Route pour ajouter un utilisateur
+        this.router.get('/pdv', this.pdvController.bind(this));
     }
 
     @Get("/all")

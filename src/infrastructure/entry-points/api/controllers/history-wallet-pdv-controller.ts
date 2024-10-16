@@ -1,13 +1,21 @@
 import { HISTORY_WALLET_PDV_SERVICE, IHistoryWalletPdvService } from "@/domain/use-cases/history-wallet-pdv-service";
 import { Adapter, Get, Mapping, Param, Query } from "@tsclean/core";
-
+import {  Router } from 'express'
 
 @Mapping('/historyWalletPdv')
 export class HistoryWalletPdvController {
 
+    public route: string = '/historyWalletPdv';
+    public router: Router;
+
     constructor(
         @Adapter(HISTORY_WALLET_PDV_SERVICE) private readonly historyWalletPdvService: IHistoryWalletPdvService
     ) {
+    }
+
+    private initializeRoutes() {
+        // Route pour ajouter un utilisateur
+        this.router.get('/historyWalletPdv', this.historyWalletPdvController.bind(this));
     }
 
     @Get("/all")

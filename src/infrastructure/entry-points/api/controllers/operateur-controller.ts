@@ -1,19 +1,27 @@
-import { ILeadsService, LEADS_SERVICE } from "@/domain/use-cases/leads-service";
 import { IOperateurService, OPERATEUR_SERVICE } from "@/domain/use-cases/operateur-service";
 import { Adapter, Get, Mapping, Param } from "@tsclean/core";
+import {  Router } from 'express'
 
 
 @Mapping('/operateur')
 export class OperateurController {
+
+    public route: string = '/operateur';
+    public router: Router;
 
     constructor(
         @Adapter(OPERATEUR_SERVICE) private readonly operateurService: IOperateurService
     ) {
     }
 
+    private initializeRoutes() {
+        // Route pour ajouter un utilisateur
+        this.router.get('/operateur', this.operateurController.bind(this));
+    }
+
     @Get("/all")
     // @Auth(["admin", "guest"])
-    async leadsController(): Promise<any> {
+    async operateurController(): Promise<any> {
         return await this.operateurService.operateurService();
     }
   

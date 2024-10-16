@@ -1,13 +1,22 @@
 import { IOrganisationService, ORGANISATION_SERVICE } from "@/domain/use-cases/organisation-service";
 import { Adapter, Get, Mapping, Param } from "@tsclean/core";
+import {  Router } from 'express'
 
 
 @Mapping('/organisation')
 export class OrganisationController {
 
+    public route: string = '/organisation';
+    public router: Router;
+
     constructor(
         @Adapter(ORGANISATION_SERVICE) private readonly organisationService: IOrganisationService
     ) {
+    }
+
+    private initializeRoutes() {
+        // Route pour ajouter un utilisateur
+        this.router.get('/organisation', this.organisationController.bind(this));
     }
 
     @Get("/all")

@@ -1,13 +1,20 @@
 import { BILL_SERVICE, IBillService } from "@/domain/use-cases/bill-service";
 import { Adapter, Get, Mapping, Param, Query } from "@tsclean/core";
-
+import {  Router } from 'express'
 
 @Mapping('/bill')
 export class BillController {
 
+    public route: string = '/bill';
+    public router: Router;
+
     constructor(
         @Adapter(BILL_SERVICE) private readonly billService: IBillService
     ) {
+    }
+    private initializeRoutes() {
+        // Route pour ajouter un utilisateur
+        this.router.post('/bill', this.billController.bind(this));
     }
 
     @Get("/all")

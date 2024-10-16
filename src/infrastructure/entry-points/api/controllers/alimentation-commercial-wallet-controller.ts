@@ -1,15 +1,20 @@
 import { ALIMENTATION_COMMERCIAL_WALLET_SERVICE, IAlimentationCommercialWalletService } from "@/domain/use-cases/alimentation-commercial-wallet-service";
 import { Adapter, Get, Mapping, Param, Query } from "@tsclean/core";
-
+import {  Router } from 'express'
 
 @Mapping('/alimentaionCommercialWallet')
 export class AlimentationCommercialWalletController {
+    public route: string = '/alimentaionCommercialWallet';
+    public router: Router;
 
     constructor(
         @Adapter(ALIMENTATION_COMMERCIAL_WALLET_SERVICE) private readonly alimentationCommercialWalletService: IAlimentationCommercialWalletService
     ) {
     }
-
+    private initializeRoutes() {
+        // Route pour ajouter un utilisateur
+        this.router.post('/alimentaionCommercialPdv', this.alimentationCommercialWalletController.bind(this));
+    }
     @Get("/all")
     // @Auth(["admin", "guest"])
     async alimentationCommercialWalletController(): Promise<any> {
