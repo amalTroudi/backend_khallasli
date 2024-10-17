@@ -23,6 +23,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AlimentationCommercialWalletController = void 0;
 const alimentation_commercial_wallet_service_1 = require("@/domain/use-cases/alimentation-commercial-wallet-service");
+const alimentation_commercial_wallet_service_impl_1 = require("@/domain/use-cases/impl/alimentation-commercial-wallet-service-impl");
 const core_1 = require("@tsclean/core");
 let AlimentationCommercialWalletController = class AlimentationCommercialWalletController {
     constructor(alimentationCommercialWalletService) {
@@ -114,7 +115,7 @@ __decorate([
 ], AlimentationCommercialWalletController.prototype, "getById", null);
 exports.AlimentationCommercialWalletController = AlimentationCommercialWalletController = __decorate([
     (0, core_1.Mapping)('/alimentaionCommercialWallet'),
-    __param(0, (0, core_1.Adapter)(alimentation_commercial_wallet_service_1.ALIMENTATION_COMMERCIAL_WALLET_SERVICE)),
-    __metadata("design:paramtypes", [Object])
+    __param(0, (0, core_1.Inject)(alimentation_commercial_wallet_service_1.ALIMENTATION_COMMERCIAL_WALLET_SERVICE)),
+    __metadata("design:paramtypes", [alimentation_commercial_wallet_service_impl_1.AlimentationCommercialWalletServiceImpl])
 ], AlimentationCommercialWalletController);
 //# sourceMappingURL=alimentation-commercial-wallet-controller.js.map

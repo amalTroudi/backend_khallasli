@@ -24,7 +24,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetUsersController = void 0;
 const get_users_service_1 = require("@/domain/use-cases/get-users-service");
 const core_1 = require("@tsclean/core");
-const auth_1 = require("../../helpers/auth");
 let GetUsersController = class GetUsersController {
     constructor(getUsersService) {
         this.getUsersService = getUsersService;
@@ -44,8 +43,8 @@ exports.GetUsersController = GetUsersController;
 __decorate([
     (0, core_1.Get)()
     // @Roles('admin')
+    // @Auth(["admin"])
     ,
-    (0, auth_1.Auth)(["admin"]),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)

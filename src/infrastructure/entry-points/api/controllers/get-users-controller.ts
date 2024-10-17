@@ -20,18 +20,10 @@ export class GetUsersController {
 
      @Get()
     // @Roles('admin')
-     @Auth(["admin"])
+   // @Auth(["admin"])
     async getUsersController(): Promise<any> {
         return await this.getUsersService.getUsersService();
     }
-    // @Get()
-    // // @Auth(["admin", "user"])
-    // async getAllDataController(): Promise<any> {
-    //     const allData = await this.getUsersService.getUsersService();
-        
-    //     console.log(allData); // Correct
-    
-    //     return allData;
-    // }
+  
    
     }

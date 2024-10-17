@@ -37,6 +37,7 @@ import { HISTORY_WALLET_PDV_SERVICE } from "@/domain/use-cases/history-wallet-pd
 import { GetActiviteServiceImpl } from "@/domain/use-cases/impl/activite-service-impl";
 import { AddUserServiceImpl } from "@/domain/use-cases/impl/add-user-service-impl";
 import { AlimentationCommercialPdvServiceImpl } from "@/domain/use-cases/impl/alimentation-commercial-pdv-service-impl";
+import { AlimentationCommercialWalletServiceImpl } from "@/domain/use-cases/impl/alimentation-commercial-wallet-service-impl";
 import { AuthenticationServiceImpl } from "@/domain/use-cases/impl/authentification-service-impl";
 import { BillServiceImpl } from "@/domain/use-cases/impl/bill-service-impl";
 import { CategoriesServiceImpl } from "@/domain/use-cases/impl/categories-service-impl";
@@ -189,10 +190,12 @@ export const services = [
     },{
         provide: ALIMENTATION_COMMERCIAL_PDV_SERVICE,
         useClass: AlimentationCommercialPdvServiceImpl,
-    },{
-        provide : ALIMENTATION_COMMERCIAL_WALLET_SERVICE,
-        useClass : AlimentationCommercialPdvServiceImpl,
-    },{
+    }, 
+    {
+        provide: ALIMENTATION_COMMERCIAL_WALLET_SERVICE, // Assure-toi d'utiliser l'interface correcte
+        useClass: AlimentationCommercialWalletServiceImpl ,
+    },
+     {
         provide: BILL_SERVICE, 
         useClass : BillServiceImpl ,
     },{

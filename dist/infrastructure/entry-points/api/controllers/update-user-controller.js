@@ -27,11 +27,11 @@ const core_1 = require("@tsclean/core");
 let UpdateUserController = class UpdateUserController {
     constructor(updateUserService) {
         this.updateUserService = updateUserService;
-        this.route = '/api/v1/update-user';
+        this.route = '/update-user/:id';
     }
     initializeRoutes() {
         // Route pour ajouter un utilisateur
-        this.router.Put('/api/v1/update-user', this.updateUserController.bind(this));
+        this.router.Put('/update-user/:id', this.updateUserController.bind(this));
     }
     //  mise à jour dans le contrôleur
     updateUserController(id, data) {

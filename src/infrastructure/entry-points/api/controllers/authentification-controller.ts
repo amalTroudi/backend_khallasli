@@ -16,9 +16,9 @@ export class AuthenticationController {
         this.router = Router();
         this.initializeRoutes();
         this.router.use(cors({
-            origin: 'http://localhost:4200', 
-            methods: ['GET', 'POST','PUT','DELETE'], 
-            allowedHeaders: ['Content-Type', 'Authorization']
+            origin: '*', 
+            methods: '*', 
+            allowedHeaders: '*'
         }));
     } 
 

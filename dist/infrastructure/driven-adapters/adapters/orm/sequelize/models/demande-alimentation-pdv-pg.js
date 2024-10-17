@@ -59,10 +59,6 @@ __decorate([
     __metadata("design:type", Date)
 ], DemandeAlimentationPdvModelPg.prototype, "dt", void 0);
 __decorate([
-    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.DATE }),
-    __metadata("design:type", Date)
-], DemandeAlimentationPdvModelPg.prototype, "update_at", void 0);
-__decorate([
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.INTEGER }),
     __metadata("design:type", Number)
 ], DemandeAlimentationPdvModelPg.prototype, "riembursed", void 0);

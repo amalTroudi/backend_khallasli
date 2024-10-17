@@ -22,31 +22,26 @@ class JwtAdapter {
     }
     encrypt(text, roles) {
         return __awaiter(this, void 0, void 0, function* () {
-            const payload = { id: text, roles: roles };
+            const payload = { id: text, roles: roles }; // Vous devriez utiliser 'roles' dans le payload
             return jsonwebtoken_1.default.sign({ account: payload }, process.env.JWT_SECRET, { expiresIn: "1d" });
         });
     }
     accessResource(context) {
         try {
             const request = context.getHttp().getRequest();
-            const authHeader = request.headers.authorization; // Extraction propre du header Authorization
-            if (!authHeader) {
-                console.error('Authorization header missing');
-                return false;
-            }
-            const token = authHeader.split(" ")[1]; // Méthode correcte pour extraire le token
+            const token = request.rawHeaders[1].split(" ")[1]; // Méthode pour extraire le token
             if (token) {
-                const decode = jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET);
-                const userRoles = decode.account.roles;
-                // Vérifiez si l'utilisateur a au moins un des rôles requis
+                const decode = jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET); // Assurez-vous que le type est défini
+                const userRoles = decode.account.roles; // Corrigez cela pour récupérer les rôles de l'utilisateur
+                // Vérifiez si l'un des rôles de l'utilisateur est dans les rôles requis
                 return userRoles.some((role) => this.roles.includes(role));
             }
         }
         catch (e) {
-            console.error('Error verifying token:', e); // Ajout de logs pour débogage
+            console.error('Error verifying token:', e); // Ajoutez des logs pour le débogage
             return false;
         }
-        return false;
+        return false; // Si pas de token, retournez false
     }
 }
 exports.JwtAdapter = JwtAdapter;

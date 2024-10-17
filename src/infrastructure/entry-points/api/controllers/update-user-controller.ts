@@ -5,7 +5,7 @@ import {  Router } from 'express'
 
 @Mapping('api/v1/update-user')
 export class UpdateUserController {
-    public route: string = '/api/v1/update-user';
+    public route: string = '/update-user/:id';
     public router: Router;
 
     constructor(
@@ -13,7 +13,7 @@ export class UpdateUserController {
     ) {}
     private initializeRoutes() {
         // Route pour ajouter un utilisateur
-        this.router.Put('/api/v1/update-user', this.updateUserController.bind(this));
+        this.router.Put('/update-user/:id', this.updateUserController.bind(this));
     }
 
  

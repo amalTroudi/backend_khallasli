@@ -1,6 +1,7 @@
 import { BILL_SERVICE, IBillService } from "@/domain/use-cases/bill-service";
 import { Adapter, Get, Mapping, Param, Query } from "@tsclean/core";
 import {  Router } from 'express'
+import { Auth } from "../../helpers/auth";
 
 @Mapping('/bill')
 export class BillController {
@@ -18,7 +19,7 @@ export class BillController {
     }
 
     @Get("/all")
-    // @Auth(["admin", "guest"])
+    //@Auth(["admin"])
     async billController(): Promise<any> {
         return await this.billService.billService();
     }

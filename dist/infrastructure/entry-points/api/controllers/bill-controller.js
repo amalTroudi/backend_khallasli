@@ -73,7 +73,7 @@ let BillController = class BillController {
 exports.BillController = BillController;
 __decorate([
     (0, core_1.Get)("/all")
-    // @Auth(["admin", "guest"])
+    //@Auth(["admin"])
     ,
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),

@@ -25,19 +25,12 @@ exports.GetUsersServiceImpl = void 0;
 const get_users_repository_1 = require("@/domain/entities/contracts/get-users-repository");
 const core_1 = require("@tsclean/core");
 let GetUsersServiceImpl = class GetUsersServiceImpl {
-    // constructor(
-    //     @Adapter(GET_USERS_REPOSITORY) private readonly getUsersRepository: IGetUsersRepository
-    // ) {
-    // }
-    // async getUsersService(): Promise<UserModelPg[]> {
-    //     return await this.getUsersRepository.getUsersRepository();
-    // }
-    constructor(getAllDataRepository) {
-        this.getAllDataRepository = getAllDataRepository;
+    constructor(getUsersRepository) {
+        this.getUsersRepository = getUsersRepository;
     }
     getUsersService() {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.getAllDataRepository.getUsersRepository();
+            return yield this.getUsersRepository.getUsersRepository();
         });
     }
 };

@@ -42,7 +42,7 @@ let ActiviteController = class ActiviteController {
 exports.ActiviteController = ActiviteController;
 __decorate([
     (0, core_1.Get)()
-    // @Auth(["admin", "guest"])
+    // @Auth(["admin"])
     ,
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),

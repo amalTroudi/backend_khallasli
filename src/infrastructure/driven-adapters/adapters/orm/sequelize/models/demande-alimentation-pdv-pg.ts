@@ -39,8 +39,8 @@ export class DemandeAlimentationPdvModelPg extends Model {
 
      @Column({ type: DataType.DATE})
      public dt !: Date;
-     @Column({ type: DataType.DATE})
-     public update_at !: Date;
+    //  @Column({ type: DataType.DATE})
+    //  public update_at !: Date;
 
      @Column({ type: DataType.INTEGER })
      public riembursed!: Number; 

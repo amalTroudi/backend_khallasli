@@ -5,19 +5,13 @@ import { IGetUsersService } from "../get-users-service";
 
 @Service()
 export class GetUsersServiceImpl implements IGetUsersService {
-    // constructor(
-    //     @Adapter(GET_USERS_REPOSITORY) private readonly getUsersRepository: IGetUsersRepository
-    // ) {
-    // }
-
-    // async getUsersService(): Promise<UserModelPg[]> {
-    //     return await this.getUsersRepository.getUsersRepository();
-    // }
     constructor(
-        @Adapter(GET_USERS_REPOSITORY) private readonly getAllDataRepository: IGetUsersRepository
-    ) {}
-
-    async getUsersService(): Promise<any> {
-        return await this.getAllDataRepository.getUsersRepository();
+        @Adapter(GET_USERS_REPOSITORY) private readonly getUsersRepository: IGetUsersRepository
+    ) {
     }
+
+    async getUsersService(): Promise<UserModelPg[]> {
+        return await this.getUsersRepository.getUsersRepository();
+    }
+    
 }

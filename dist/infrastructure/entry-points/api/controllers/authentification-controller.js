@@ -38,9 +38,9 @@ let AuthenticationController = class AuthenticationController {
         this.router = (0, express_1.Router)();
         this.initializeRoutes();
         this.router.use((0, cors_1.default)({
-            origin: 'http://localhost:4200',
-            methods: ['GET', 'POST', 'PUT', 'DELETE'],
-            allowedHeaders: ['Content-Type', 'Authorization']
+            origin: '*',
+            methods: '*',
+            allowedHeaders: '*'
         }));
     }
     initializeRoutes() {

@@ -38,6 +38,7 @@ const history_wallet_pdv_service_1 = require("@/domain/use-cases/history-wallet-
 const activite_service_impl_1 = require("@/domain/use-cases/impl/activite-service-impl");
 const add_user_service_impl_1 = require("@/domain/use-cases/impl/add-user-service-impl");
 const alimentation_commercial_pdv_service_impl_1 = require("@/domain/use-cases/impl/alimentation-commercial-pdv-service-impl");
+const alimentation_commercial_wallet_service_impl_1 = require("@/domain/use-cases/impl/alimentation-commercial-wallet-service-impl");
 const authentification_service_impl_1 = require("@/domain/use-cases/impl/authentification-service-impl");
 const bill_service_impl_1 = require("@/domain/use-cases/impl/bill-service-impl");
 const categories_service_impl_1 = require("@/domain/use-cases/impl/categories-service-impl");
@@ -179,10 +180,12 @@ exports.services = [
     }, {
         provide: alimentation_commercial_pdv_service_1.ALIMENTATION_COMMERCIAL_PDV_SERVICE,
         useClass: alimentation_commercial_pdv_service_impl_1.AlimentationCommercialPdvServiceImpl,
-    }, {
-        provide: alimentation_commercial_wallet_service_1.ALIMENTATION_COMMERCIAL_WALLET_SERVICE,
-        useClass: alimentation_commercial_pdv_service_impl_1.AlimentationCommercialPdvServiceImpl,
-    }, {
+    },
+    {
+        provide: alimentation_commercial_wallet_service_1.ALIMENTATION_COMMERCIAL_WALLET_SERVICE, // Assure-toi d'utiliser l'interface correcte
+        useClass: alimentation_commercial_wallet_service_impl_1.AlimentationCommercialWalletServiceImpl,
+    },
+    {
         provide: bill_service_1.BILL_SERVICE,
         useClass: bill_service_impl_1.BillServiceImpl,
     }, {
